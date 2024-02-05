@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+    securitydb:
+        container_name: security-docker-mysql
+        image: mariadb:latest
+        ports:
+            - '3306:3306'
+        volumes:
+            - db-security-data:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=security
+            - MYSQL_USER=security
+            - MYSQL_PASSWORD=security
+        command: --innodb-use-native-aio=0
+
+    royanlabphpmyadmin:
+        container_name: security-docker-phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        links:
+            - securitydb
+        ports:
+            - 8000:80
+        environment:
+            - MYSQL_USER=security
+            - MYSQL_PASSWORD=security
+            - MYSQL_ROOT_PASSWORD=root
+            - PMA_USER=security
+            - PMA_PASSWORD=security
+            - PMA_ARBITRARY="1"
+            - PMA_HOST=securitydb
+            - UPLOAD_LIMIT=1G
+
+volumes:
+    db-security-data:
