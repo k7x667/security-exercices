@@ -1,3 +1,5 @@
+![Security report](./src/index.md)
+
 ```
 npm install
 npm run dev
