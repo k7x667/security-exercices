@@ -1,4 +1,4 @@
-![Security report](./src/index.md)
+[Security report](./src/index.md)
 
 ```
 npm install
