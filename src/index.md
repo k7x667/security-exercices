@@ -9,5 +9,5 @@ http://127.0.0.1:3000/welcome?name=<script>alert("Hello world")</script>
 ## Create Table
 
 ```
-http://127.0.0.1:3000/login?username=test' OR 1=1; CREATE TABLE new_table_name(id INT, name VARCHAR(255)); --
+http://127.0.0.1:3000/login?username=test' OR 1=1; CREATE TABLE table(id INT, name VARCHAR(255)); --
 ```
